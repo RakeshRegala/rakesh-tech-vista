@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Briefcase, Code, Database } from 'lucide-react';
-
 const About: React.FC = () => {
-  return (
-    <section id="about" className="relative section-padding">
+  return <section id="about" className="relative section-padding">
       {/* Decorative elements */}
       <div className="shape-blob h-64 w-64 -top-20 right-1/4 opacity-30"></div>
       
@@ -26,7 +23,7 @@ const About: React.FC = () => {
             <div className="bg-card shadow-md rounded-lg p-6 border">
               <h4 className="font-medium">B.Tech in Computer Science and Engineering</h4>
               <p className="text-muted-foreground">Vishnu Institute of Technology, Bhimavaram</p>
-              <p className="text-sm text-muted-foreground">2022 - 2026 (Expected)</p>
+              <p className="text-sm text-muted-foreground">2022 - 2027</p>
             </div>
             
             <p className="text-muted-foreground">
@@ -85,8 +82,6 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
