@@ -76,9 +76,7 @@ const About: React.FC = () => {
             </div>
             
             <p className="text-muted-foreground">
-              As a second-year student, I'm at the beginning of my professional journey, but I bring enthusiasm, 
-              dedication, and a strong foundation in computer science principles to every project I undertake.
-            </p>
+          </p>
           </div>
         </div>
       </div>
