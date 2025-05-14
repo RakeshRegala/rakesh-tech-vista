@@ -25,6 +25,18 @@ const About: React.FC = () => {
               <p className="text-muted-foreground">Vishnu Institute of Technology, Bhimavaram</p>
               <p className="text-sm text-muted-foreground">2023 - 2027</p>
             </div>
+
+            <div className="bg-card shadow-md rounded-lg p-6 border">
+              <h4 className="font-medium">Sri Chaitanya Junior college</h4>
+              <p className="text-muted-foreground">Visakhapatnam</p>
+              <p className="text-sm text-muted-foreground">2021 - 2023</p>
+            </div>
+
+            <div className="bg-card shadow-md rounded-lg p-6 border">
+              <h4 className="font-medium">St.Ann's Convent School</h4>
+              <p className="text-muted-foreground">Pathapatnam</p>
+              <p className="text-sm text-muted-foreground">2021</p>
+            </div>
             
             <p className="text-muted-foreground">
               Beyond academics, I'm passionate about solving real-world problems through technology. 

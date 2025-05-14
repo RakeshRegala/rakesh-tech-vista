@@ -64,36 +64,36 @@ const Contact: React.FC = () => {
               <ContactItem 
                 icon={<Mail className="h-5 w-5" />} 
                 title="Email" 
-                value="rakesh.regala@example.com" 
-                href="mailto:rakesh.regala@example.com" 
+                value="rakeshregala3@gmail.com" 
+                href="mailto:rakeshregala3@gmail.com" 
               />
               
               <ContactItem 
                 icon={<Phone className="h-5 w-5" />} 
                 title="Phone" 
-                value="+91 98765 43210" 
-                href="tel:+919876543210" 
+                value="+91 8260743146" 
+                href="tel:+918260743146" 
               />
               
               <ContactItem 
                 icon={<Linkedin className="h-5 w-5" />} 
                 title="LinkedIn" 
-                value="linkedin.com/in/rakesh-regala" 
-                href="https://linkedin.com/in/rakesh-regala" 
+                value="https://www.linkedin.com/in/rakesh-regala" 
+                href="https://www.linkedin.com/in/rakesh-regala-13a8382b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
               />
               
               <ContactItem 
                 icon={<Github className="h-5 w-5" />} 
                 title="GitHub" 
-                value="github.com/rakesh-regala" 
-                href="https://github.com/rakesh-regala" 
+                value="https://github.com/RakeshRegala" 
+                href="https://github.com/RakeshRegala" 
               />
               
               <ContactItem 
                 icon={<Instagram className="h-5 w-5" />} 
                 title="Instagram" 
-                value="@rakesh_regala" 
-                href="https://instagram.com/rakesh_regala" 
+                value="@rakesh" 
+                href="https://www.instagram.com/rakesh_comrade_/?__pwa=1" 
               />
             </div>
           </div>

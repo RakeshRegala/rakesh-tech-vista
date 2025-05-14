@@ -31,25 +31,25 @@ const Experience: React.FC = () => {
     {
       title: "Data Science Intern",
       company: "SkillDzire",
-      period: "2023",
+      period: "2025(May-June)",
       description: "Worked on data analysis and visualization projects, applying machine learning algorithms to extract meaningful insights from datasets. Developed skills in Python, pandas, and data preprocessing techniques.",
     },
     {
       title: "Data Engineering Intern",
       company: "AICTE–AWS Internship Program",
-      period: "2023",
+      period: "2024",
       description: "Collaborated in a team to design and implement data pipelines on AWS. Gained hands-on experience with cloud services, data transformation, and ETL processes.",
     },
     {
       title: "Android Developer Virtual Intern",
       company: "Google",
-      period: "2022",
+      period: "2023",
       description: "Participated in a virtual internship program focused on Android app development. Built mobile applications using Kotlin and learned modern Android development practices and architecture patterns.",
     },
     {
       title: "Embedded Systems Intern",
       company: "Emertxe",
-      period: "2022",
+      period: "2025",
       description: "Worked on embedded systems projects, focusing on hardware-software integration. Developed skills in microcontroller programming, IoT fundamentals, and real-time systems.",
     }
   ];

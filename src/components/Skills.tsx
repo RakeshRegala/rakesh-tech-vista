@@ -30,11 +30,11 @@ const Skills: React.FC = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["Python", "Java", "C++", "JavaScript", "TypeScript"]
+      skills: ["Python", "Java", "C","C++", "JavaScript", "TypeScript"]
     },
     {
       title: "Frontend Development",
-      skills: ["HTML/CSS", "React", "Next.js", "Tailwind CSS", "Angular"]
+      skills: ["HTML/CSS", "React", "Next.js", "Tailwind CSS", ]
     },
     {
       title: "Backend Development",
@@ -42,7 +42,7 @@ const Skills: React.FC = () => {
     },
     {
       title: "Mobile Development",
-      skills: ["Android", "Kotlin", "React Native"]
+      skills: ["Android", "Kotlin"]
     },
     {
       title: "Data Science & Engineering",
@@ -58,7 +58,7 @@ const Skills: React.FC = () => {
     },
     {
       title: "Tools & Platforms",
-      skills: ["Git", "GitHub", "VS Code", "Jupyter", "Postman", "Linux"]
+      skills: ["Git", "GitHub", "VS Code", "Jupyter", "Linux"]
     }
   ];
 

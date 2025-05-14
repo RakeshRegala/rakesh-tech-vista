@@ -40,8 +40,8 @@ const Hero: React.FC = () => {
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4 animate-fade-in" style={{
             animationDelay: '0.6s'
           }}>
-            <Button asChild size="lg">
-              <a href="#work">
+            <Button  asChild size="lg">
+              <a href="#experience">
                 View My Work <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
