@@ -18,8 +18,8 @@ const Hero: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary opacity-70 blur-md"></div>
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background relative">
-                {/* Updated image with the provided URL */}
-                <img src="https://i.ibb.co/KxmLmvQ/IMG-20240722-005626.jpg" alt="Regala Rakesh" className="w-full h-full object-cover" />
+                {/* Updated image with the newly uploaded image */}
+                <img src="/lovable-uploads/ea1a80cc-4c60-4764-bcff-c98e66c06081.png" alt="Regala Rakesh" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
