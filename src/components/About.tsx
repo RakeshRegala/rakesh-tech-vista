@@ -23,7 +23,7 @@ const About: React.FC = () => {
             <div className="bg-card shadow-md rounded-lg p-6 border">
               <h4 className="font-medium">B.Tech in Computer Science and Engineering</h4>
               <p className="text-muted-foreground">Vishnu Institute of Technology, Bhimavaram</p>
-              <p className="text-sm text-muted-foreground">2022 - 2027</p>
+              <p className="text-sm text-muted-foreground">2023 - 2027</p>
             </div>
             
             <p className="text-muted-foreground">
