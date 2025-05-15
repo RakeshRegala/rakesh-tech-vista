@@ -46,6 +46,7 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -65,19 +66,19 @@ const Contact: React.FC = () => {
     }
     
     setIsSubmitting(true);
+    setIsSuccess(false);
     
     try {
-      // Replace these values with your actual EmailJS service, template, and user IDs
       await emailjs.send(
-        'YOUR_SERVICE_ID', // e.g., 'gmail'
-        'YOUR_TEMPLATE_ID', // e.g., 'template_abc123'
+        'service_6ustxb6',
+        'template_9y7wxzf',
         {
           from_name: formData.name,
           reply_to: formData.email,
           subject: formData.subject,
           message: formData.message
         },
-        'YOUR_USER_ID' // e.g., 'user_abc123'
+        'DeOu86qm7s6vVHpMO'
       );
       
       toast({
@@ -92,6 +93,8 @@ const Contact: React.FC = () => {
         subject: '',
         message: ''
       });
+      
+      setIsSuccess(true);
     } catch (error) {
       console.error('Error sending email:', error);
       toast({
@@ -215,6 +218,11 @@ const Contact: React.FC = () => {
                   <>
                     <Loader className="mr-2 h-4 w-4 animate-spin" />
                     Sending...
+                  </>
+                ) : isSuccess ? (
+                  <>
+                    <Check className="mr-2 h-4 w-4" />
+                    Sent Successfully
                   </>
                 ) : (
                   <>Send Message</>
