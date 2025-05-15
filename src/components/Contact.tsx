@@ -1,9 +1,11 @@
 
-import React from 'react';
-import { Mail, Phone, Linkedin, Github, Instagram } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, Linkedin, Github, Instagram, Loader, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
+import emailjs from 'emailjs-com';
 
 interface ContactItemProps {
   icon: React.ReactNode;
@@ -36,10 +38,70 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, title, value, href }) =
 );
 
 const Contact: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - in a real implementation this would send an email or save to a database
-    console.log('Form submitted');
+    
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Replace these values with your actual EmailJS service, template, and user IDs
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // e.g., 'gmail'
+        'YOUR_TEMPLATE_ID', // e.g., 'template_abc123'
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        },
+        'YOUR_USER_ID' // e.g., 'user_abc123'
+      );
+      
+      toast({
+        title: "Success!",
+        description: "Your message has been sent. I'll get back to you soon!",
+      });
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Failed to send",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -104,17 +166,36 @@ const Contact: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">Your Name</label>
-                  <Input id="name" placeholder="John Doe" required />
+                  <Input 
+                    id="name" 
+                    placeholder="John Doe" 
+                    required 
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">Your Email</label>
-                  <Input id="email" type="email" placeholder="john@example.com" required />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="john@example.com" 
+                    required 
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                <Input id="subject" placeholder="How can I help you?" required />
+                <Input 
+                  id="subject" 
+                  placeholder="How can I help you?" 
+                  required 
+                  value={formData.subject}
+                  onChange={handleChange}
+                />
               </div>
               
               <div className="space-y-2">
@@ -124,10 +205,21 @@ const Contact: React.FC = () => {
                   placeholder="Your message here..." 
                   className="min-h-32" 
                   required 
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </div>
               
-              <Button type="submit" className="w-full">Send Message</Button>
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <Loader className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>Send Message</>
+                )}
+              </Button>
             </form>
           </div>
         </div>
