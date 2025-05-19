@@ -143,7 +143,7 @@ const Contact: React.FC = () => {
               <ContactItem 
                 icon={<Linkedin className="h-5 w-5" />} 
                 title="LinkedIn" 
-                value="https://www.linkedin.com/in/rakesh-regala" 
+                value="Rakesh Regala" 
                 href="https://www.linkedin.com/in/rakesh-regala-13a8382b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
               />
               
