@@ -150,14 +150,14 @@ const Contact: React.FC = () => {
               <ContactItem 
                 icon={<Github className="h-5 w-5" />} 
                 title="GitHub" 
-                value="https://github.com/RakeshRegala" 
+                value="RakeshRegala" 
                 href="https://github.com/RakeshRegala" 
               />
               
               <ContactItem 
                 icon={<Instagram className="h-5 w-5" />} 
                 title="Instagram" 
-                value="@rakesh" 
+                value="rakesh_comrade_" 
                 href="https://www.instagram.com/rakesh_comrade_/?__pwa=1" 
               />
             </div>
