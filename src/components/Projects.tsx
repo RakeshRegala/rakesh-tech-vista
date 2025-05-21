@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Database, Globe, Telegram } from 'lucide-react';
+import { Code, Database, Globe, MessageSquare } from 'lucide-react';
 
 interface ProjectProps {
   title: string;
@@ -50,14 +50,14 @@ const Projects: React.FC = () => {
       description: "A Telegram bot designed to store and manage personal details of individuals securely within the Telegram chat interface.",
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20123146.png?updatedAt=1747810966724",
       technologies: ["JavaScript", "Telegram Bot API", "Firebase"],
-      icon: <Telegram className="h-5 w-5" />
+      icon: <MessageSquare className="h-5 w-5" />
     },
     {
       title: "Telegram Bot – Weather Info",
       description: "A bot that returns real-time weather information for any given place using a weather API. Designed for quick, in-chat weather queries.",
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20123525.png",
       technologies: ["JavaScript", "Telegram Bot API", "OpenWeather API", "Firebase"],
-      icon: <Telegram className="h-5 w-5" />
+      icon: <MessageSquare className="h-5 w-5" />
     },
     {
       title: "Stock Info Webpage",
