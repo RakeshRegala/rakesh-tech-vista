@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -123,7 +122,6 @@ const Projects: React.FC = () => {
               size="icon"
               onClick={prevProject}
               className="rounded-full"
-              disabled={currentProject === 0}
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -146,7 +144,6 @@ const Projects: React.FC = () => {
               size="icon"
               onClick={nextProject}
               className="rounded-full"
-              disabled={currentProject === projects.length - 1}
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
