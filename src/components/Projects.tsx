@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
           A showcase of my technical projects and applications
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+        <div className="flex flex-col gap-8 mt-16 max-w-4xl mx-auto">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
