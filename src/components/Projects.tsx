@@ -14,28 +14,28 @@ interface ProjectProps {
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, technologies, icon }) => (
-  <Card className="overflow-hidden flex flex-col h-full max-w-4xl mx-auto">
-    <div className="relative h-64 md:h-80 overflow-hidden">
+  <Card className="overflow-hidden flex flex-col h-full max-w-2xl mx-auto">
+    <div className="relative h-40 md:h-48 overflow-hidden">
       <img 
         src={image} 
         alt={title} 
         className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
       />
     </div>
-    <CardHeader className="pb-2">
-      <CardTitle className="flex items-center gap-2 text-2xl">
+    <CardHeader className="pb-2 p-4">
+      <CardTitle className="flex items-center gap-2 text-lg">
         <span className="text-primary">{icon}</span>
         {title}
       </CardTitle>
     </CardHeader>
-    <CardContent className="flex-grow">
-      <CardDescription className="text-muted-foreground text-lg mb-4">
+    <CardContent className="flex-grow p-4 pt-0">
+      <CardDescription className="text-muted-foreground text-sm mb-3">
         {description}
       </CardDescription>
     </CardContent>
-    <CardFooter className="flex flex-wrap gap-2">
+    <CardFooter className="flex flex-wrap gap-1 p-4 pt-0">
       {technologies.map((tech, index) => (
-        <Badge key={index} variant="outline" className="bg-muted/30">
+        <Badge key={index} variant="outline" className="bg-muted/30 text-xs">
           {tech}
         </Badge>
       ))}
@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
           A showcase of my technical projects and applications
         </p>
         
-        <div className="relative mt-16">
+        <div className="relative mt-12">
           {/* Project Display */}
           <div className="overflow-hidden">
             <div 
@@ -103,7 +103,7 @@ const Projects: React.FC = () => {
               style={{ transform: `translateX(-${currentProject * 100}%)` }}
             >
               {projects.map((project, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-4">
+                <div key={index} className="w-full flex-shrink-0 px-2">
                   <ProjectCard
                     title={project.title}
                     description={project.description}
@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex items-center justify-center gap-4 mt-6">
             <Button
               variant="outline"
               size="icon"
