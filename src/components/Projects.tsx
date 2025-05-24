@@ -48,6 +48,20 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
+      title: "Currency Converter",
+      description: "A responsive currency converter web tool that provides real-time conversion rates between multiple currencies.",
+      image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20124309.png",
+      technologies: ["JavaScript", "Exchange Rate API", "HTML/CSS", "Express.JS", "Firebase"],
+      icon: <Code className="h-5 w-5" />
+    },
+    {
+      title: "Stock Info Webpage",
+      description: "A web application that allows users to retrieve and display stock market data for a specified company using live data APIs.",
+      image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20124016.png",
+      technologies: ["HTML", "CSS", "JavaScript", "Stock Market API", "Express.JS", "Firebase"],
+      icon: <Globe className="h-5 w-5" />
+    },
+    {
       title: "Telegram Bot – Personal Details Storage",
       description: "A Telegram bot designed to store and manage personal details of individuals securely within the Telegram chat interface.",
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20123146.png?updatedAt=1747810966724",
@@ -60,20 +74,6 @@ const Projects: React.FC = () => {
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20123525.png",
       technologies: ["JavaScript", "Telegram Bot API", "OpenWeather API", "Firebase"],
       icon: <MessageSquare className="h-5 w-5" />
-    },
-    {
-      title: "Stock Info Webpage",
-      description: "A web application that allows users to retrieve and display stock market data for a specified company using live data APIs.",
-      image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20124016.png",
-      technologies: ["HTML", "CSS", "JavaScript", "Stock Market API", "Express.JS", "Firebase"],
-      icon: <Globe className="h-5 w-5" />
-    },
-    {
-      title: "Currency Converter",
-      description: "A responsive currency converter web tool that provides real-time conversion rates between multiple currencies.",
-      image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20124309.png",
-      technologies: ["JavaScript", "Exchange Rate API", "HTML/CSS", "Express.JS", "Firebase"],
-      icon: <Code className="h-5 w-5" />
     }
   ];
 
