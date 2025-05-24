@@ -1,21 +1,21 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Database, Globe, MessageSquare } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Code, Database, Globe, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ProjectProps {
   title: string;
   description: string;
   image: string;
   technologies: string[];
-  delay: number;
   icon: React.ReactNode;
 }
 
-const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, technologies, delay, icon }) => (
-  <Card className="animate-fade-in card-hover overflow-hidden flex flex-col h-full" style={{ animationDelay: `${delay}ms` }}>
-    <div className="relative h-48 md:h-56 overflow-hidden">
+const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, technologies, icon }) => (
+  <Card className="overflow-hidden flex flex-col h-full max-w-4xl mx-auto">
+    <div className="relative h-64 md:h-80 overflow-hidden">
       <img 
         src={image} 
         alt={title} 
@@ -23,13 +23,13 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, techno
       />
     </div>
     <CardHeader className="pb-2">
-      <CardTitle className="flex items-center gap-2 text-xl">
+      <CardTitle className="flex items-center gap-2 text-2xl">
         <span className="text-primary">{icon}</span>
         {title}
       </CardTitle>
     </CardHeader>
     <CardContent className="flex-grow">
-      <CardDescription className="text-muted-foreground text-base mb-4">
+      <CardDescription className="text-muted-foreground text-lg mb-4">
         {description}
       </CardDescription>
     </CardContent>
@@ -44,6 +44,8 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, techno
 );
 
 const Projects: React.FC = () => {
+  const [currentProject, setCurrentProject] = useState(0);
+
   const projects = [
     {
       title: "Telegram Bot – Personal Details Storage",
@@ -75,6 +77,14 @@ const Projects: React.FC = () => {
     }
   ];
 
+  const nextProject = () => {
+    setCurrentProject((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
   return (
     <section id="projects" className="relative section-padding">
       <div className="shape-blob h-80 w-80 bottom-0 right-1/4 opacity-30"></div>
@@ -85,18 +95,67 @@ const Projects: React.FC = () => {
           A showcase of my technical projects and applications
         </p>
         
-        <div className="flex flex-col gap-8 mt-16 max-w-4xl mx-auto">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              technologies={project.technologies}
-              icon={project.icon}
-              delay={index * 150}
-            />
-          ))}
+        <div className="relative mt-16">
+          {/* Project Display */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentProject * 100}%)` }}
+            >
+              {projects.map((project, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-4">
+                  <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    image={project.image}
+                    technologies={project.technologies}
+                    icon={project.icon}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevProject}
+              className="rounded-full"
+              disabled={currentProject === 0}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            
+            {/* Project Indicators */}
+            <div className="flex gap-2">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentProject(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentProject ? 'bg-primary' : 'bg-muted'
+                  }`}
+                />
+              ))}
+            </div>
+            
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextProject}
+              className="rounded-full"
+              disabled={currentProject === projects.length - 1}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* Project Counter */}
+          <div className="text-center mt-4 text-muted-foreground">
+            {currentProject + 1} of {projects.length}
+          </div>
         </div>
       </div>
     </section>
