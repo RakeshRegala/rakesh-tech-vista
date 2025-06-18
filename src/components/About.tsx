@@ -1,18 +1,21 @@
+
 import React from 'react';
 import { Briefcase, Code, Database } from 'lucide-react';
+
 const About: React.FC = () => {
-  return <section id="about" className="relative section-padding">
+  return (
+    <section id="about" className="relative section-padding">
       {/* Decorative elements */}
       <div className="shape-blob h-64 w-64 -top-20 right-1/4 opacity-30"></div>
       
       <div className="container mx-auto">
-        <h2 className="section-title text-center">About Me</h2>
-        <p className="section-subtitle text-center max-w-3xl mx-auto">
+        <h2 className="section-title text-center scroll-item">About Me</h2>
+        <p className="section-subtitle text-center max-w-3xl mx-auto scroll-item">
           A brief introduction about who I am and my academic journey
         </p>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
-          <div className="space-y-6">
+          <div className="space-y-6 scroll-item">
             <h3 className="text-2xl font-semibold">Education & Background</h3>
             <p className="text-muted-foreground">
               Currently pursuing a B.Tech in Computer Science and Engineering at Vishnu Institute of Technology, 
@@ -46,7 +49,7 @@ const About: React.FC = () => {
             </p>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-8 scroll-item">
             <h3 className="text-2xl font-semibold">My Approach</h3>
             
             <div className="grid gap-6">
@@ -86,12 +89,11 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
-            
-            <p className="text-muted-foreground">
-          </p>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;
