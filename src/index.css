@@ -86,6 +86,7 @@
 @layer components {
   .gradient-text {
     @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    animation: gradient-shift 3s ease-in-out infinite alternate;
   }
   
   .section-padding {
@@ -112,7 +113,7 @@
   }
   
   .nav-link {
-    @apply relative px-2 py-1 text-foreground/80 hover:text-foreground transition-colors;
+    @apply relative px-2 py-1 text-foreground/80 hover:text-foreground transition-all duration-300;
   }
 
   .nav-link::after {
@@ -122,10 +123,52 @@
   
   .nav-link:hover::after {
     @apply w-full;
+    animation: glow 1s ease-in-out;
   }
 
   .nav-link.active::after {
     @apply w-full;
+  }
+
+  /* Enhanced button animations */
+  button {
+    @apply transition-all duration-200;
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  /* Card animations */
+  .card {
+    @apply transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-2xl;
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  /* Input field animations */
+  input, textarea {
+    @apply transition-all duration-300;
+  }
+
+  input:focus, textarea:focus {
+    transform: scale(1.02);
+  }
+
+  /* Badge animations */
+  .badge {
+    @apply transition-all duration-200;
+  }
+
+  .badge:hover {
+    transform: translateY(-1px) scale(1.05);
   }
 }
 
@@ -139,4 +182,81 @@
   100% {
     transform: translate(-15px, 15px) rotate(-5deg);
   }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--secondary));
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--secondary)), 0 0 30px hsl(var(--secondary));
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation classes */
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-500 {
+  animation-delay: 0.5s;
 }

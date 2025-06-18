@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,28 +14,33 @@ interface ProjectProps {
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, technologies, icon }) => (
-  <Card className="overflow-hidden flex flex-col h-full max-w-2xl mx-auto">
+  <Card className="overflow-hidden flex flex-col h-full max-w-2xl mx-auto card-hover group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
     <div className="relative h-40 md:h-48 overflow-hidden">
       <img 
         src={image} 
         alt={title} 
-        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </div>
-    <CardHeader className="pb-2 p-4">
-      <CardTitle className="flex items-center gap-2 text-lg">
-        <span className="text-primary">{icon}</span>
+    <CardHeader className="pb-2 p-4 group-hover:bg-muted/20 transition-colors duration-300">
+      <CardTitle className="flex items-center gap-2 text-lg group-hover:text-primary transition-colors duration-300">
+        <span className="text-primary transform group-hover:scale-110 transition-transform duration-300">{icon}</span>
         {title}
       </CardTitle>
     </CardHeader>
     <CardContent className="flex-grow p-4 pt-0">
-      <CardDescription className="text-muted-foreground text-sm mb-3">
+      <CardDescription className="text-muted-foreground text-sm mb-3 group-hover:text-foreground transition-colors duration-300">
         {description}
       </CardDescription>
     </CardContent>
     <CardFooter className="flex flex-wrap gap-1 p-4 pt-0">
       {technologies.map((tech, index) => (
-        <Badge key={index} variant="outline" className="bg-muted/30 text-xs">
+        <Badge 
+          key={index} 
+          variant="outline" 
+          className="bg-muted/30 text-xs transform hover:scale-105 hover:bg-primary/20 transition-all duration-200"
+        >
           {tech}
         </Badge>
       ))}
@@ -77,7 +83,7 @@ const Projects: React.FC = () => {
     {
       title: "✨ URL Shortener",
       description: "A lightweight web app to create and manage short links.",
-      image: "https://i.ibb.co/pj804rn/url-shortener.jpg",
+      image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-06-18%20113724.png",
       technologies: ["HTML", "CSS", "JavaScript", "Firebase Hosting", "Firebase Realtime Database", "Firebase CLI"],
       icon: <Link className="h-4 w-4" />
     }
@@ -93,11 +99,11 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="relative section-padding">
-      <div className="shape-blob h-80 w-80 bottom-0 right-1/4 opacity-30"></div>
+      <div className="shape-blob h-80 w-80 bottom-0 right-1/4 opacity-30 animate-pulse"></div>
       
       <div className="container mx-auto">
-        <h2 className="section-title text-center">Projects</h2>
-        <p className="section-subtitle text-center max-w-3xl mx-auto">
+        <h2 className="section-title text-center animate-fade-in">Projects</h2>
+        <p className="section-subtitle text-center max-w-3xl mx-auto animate-fade-in">
           A showcase of my technical projects and applications
         </p>
         
@@ -128,7 +134,7 @@ const Projects: React.FC = () => {
               variant="outline"
               size="icon"
               onClick={prevProject}
-              className="rounded-full"
+              className="rounded-full hover:scale-110 hover:bg-primary hover:text-primary-foreground transition-all duration-200"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -139,8 +145,8 @@ const Projects: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentProject(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentProject ? 'bg-primary' : 'bg-muted'
+                  className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+                    index === currentProject ? 'bg-primary scale-110' : 'bg-muted hover:bg-primary/50'
                   }`}
                 />
               ))}
@@ -150,14 +156,14 @@ const Projects: React.FC = () => {
               variant="outline"
               size="icon"
               onClick={nextProject}
-              className="rounded-full"
+              className="rounded-full hover:scale-110 hover:bg-primary hover:text-primary-foreground transition-all duration-200"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
 
           {/* Project Counter */}
-          <div className="text-center mt-4 text-muted-foreground">
+          <div className="text-center mt-4 text-muted-foreground animate-fade-in">
             {currentProject + 1} of {projects.length}
           </div>
         </div>
