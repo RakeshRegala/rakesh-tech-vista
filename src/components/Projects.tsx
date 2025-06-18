@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Code, Database, Globe, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Code, Database, Globe, MessageSquare, ChevronLeft, ChevronRight, Link } from 'lucide-react';
 
 interface ProjectProps {
   title: string;
@@ -51,28 +51,35 @@ const Projects: React.FC = () => {
       description: "A responsive currency converter web tool that provides real-time conversion rates between multiple currencies.",
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20124309.png",
       technologies: ["JavaScript", "Exchange Rate API", "HTML/CSS", "Express.JS", "Firebase"],
-      icon: <Code className="h-5 w-5" />
+      icon: <Code className="h-4 w-4" />
     },
     {
       title: "Stock Info Webpage",
       description: "A web application that allows users to retrieve and display stock market data for a specified company using live data APIs.",
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20124016.png",
       technologies: ["HTML", "CSS", "JavaScript", "Stock Market API", "Express.JS", "Firebase"],
-      icon: <Globe className="h-5 w-5" />
+      icon: <Globe className="h-4 w-4" />
     },
     {
       title: "Telegram Bot – Personal Details Storage",
       description: "A Telegram bot designed to store and manage personal details of individuals securely within the Telegram chat interface.",
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20123146.png?updatedAt=1747810966724",
       technologies: ["JavaScript", "Telegram Bot API", "Firebase"],
-      icon: <MessageSquare className="h-5 w-5" />
+      icon: <MessageSquare className="h-4 w-4" />
     },
     {
       title: "Telegram Bot – Weather Info",
       description: "A bot that returns real-time weather information for any given place using a weather API. Designed for quick, in-chat weather queries.",
       image: "https://ik.imagekit.io/jito8rw9a/Screenshot%202025-05-21%20123525.png",
       technologies: ["JavaScript", "Telegram Bot API", "OpenWeather API", "Firebase"],
-      icon: <MessageSquare className="h-5 w-5" />
+      icon: <MessageSquare className="h-4 w-4" />
+    },
+    {
+      title: "✨ URL Shortener",
+      description: "A lightweight web app to create and manage short links.",
+      image: "https://i.ibb.co/pj804rn/url-shortener.jpg",
+      technologies: ["HTML", "CSS", "JavaScript", "Firebase Hosting", "Firebase Realtime Database", "Firebase CLI"],
+      icon: <Link className="h-4 w-4" />
     }
   ];
 
