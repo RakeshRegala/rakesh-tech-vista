@@ -1,9 +1,8 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Code, Database, Globe, MessageSquare, ChevronLeft, ChevronRight, Link } from 'lucide-react';
+import { Code, Database, Globe, MessageSquare, Link } from 'lucide-react';
 
 interface ProjectProps {
   title: string;
@@ -14,7 +13,7 @@ interface ProjectProps {
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, technologies, icon }) => (
-  <Card className="overflow-hidden flex flex-col h-full max-w-2xl mx-auto card-hover group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+  <Card className="overflow-hidden flex flex-col h-full min-w-[320px] md:min-w-[400px] max-w-[450px] mx-auto card-hover group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl flex-shrink-0">
     <div className="relative h-40 md:h-48 overflow-hidden">
       <img 
         src={image} 
@@ -49,8 +48,6 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, techno
 );
 
 const Projects: React.FC = () => {
-  const [currentProject, setCurrentProject] = useState(0);
-
   const projects = [
     {
       title: "MEDIAGRID-A Social webapp",
@@ -96,14 +93,6 @@ const Projects: React.FC = () => {
     }
   ];
 
-  const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
   return (
     <section id="projects" className="relative section-padding">
       <div className="shape-blob h-80 w-80 bottom-0 right-1/4 opacity-30 animate-pulse"></div>
@@ -115,63 +104,25 @@ const Projects: React.FC = () => {
         </p>
         
         <div className="relative mt-12">
-          {/* Project Display */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentProject * 100}%)` }}
-            >
+          {/* Horizontal Scrollable Projects Container */}
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-6 pb-4 px-4">
               {projects.map((project, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-2">
-                  <ProjectCard
-                    title={project.title}
-                    description={project.description}
-                    image={project.image}
-                    technologies={project.technologies}
-                    icon={project.icon}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation Controls */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={prevProject}
-              className="rounded-full hover:scale-110 hover:bg-primary hover:text-primary-foreground transition-all duration-200"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            
-            {/* Project Indicators */}
-            <div className="flex gap-2">
-              {projects.map((_, index) => (
-                <button
+                <ProjectCard
                   key={index}
-                  onClick={() => setCurrentProject(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-                    index === currentProject ? 'bg-primary scale-110' : 'bg-muted hover:bg-primary/50'
-                  }`}
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  technologies={project.technologies}
+                  icon={project.icon}
                 />
               ))}
             </div>
-            
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={nextProject}
-              className="rounded-full hover:scale-110 hover:bg-primary hover:text-primary-foreground transition-all duration-200"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
           </div>
 
-          {/* Project Counter */}
-          <div className="text-center mt-4 text-muted-foreground animate-fade-in">
-            {currentProject + 1} of {projects.length}
+          {/* Scroll indicator */}
+          <div className="text-center mt-6 text-muted-foreground animate-fade-in">
+            <p className="text-sm">← Scroll horizontally to view all projects →</p>
           </div>
         </div>
       </div>

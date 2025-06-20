@@ -130,6 +130,16 @@
     @apply w-full;
   }
 
+  /* Custom Scrollbar Styles */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+
   /* Scroll Animation Classes */
   .scroll-section {
     opacity: 0;
