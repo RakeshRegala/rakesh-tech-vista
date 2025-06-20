@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -54,7 +55,7 @@ const Projects: React.FC = () => {
     {
       title: "MEDIAGRID-A Social webapp",
       description: "A responsive web application that allows users to sign up, log in, and upload media files (images/videos), which are then displayed in a dynamic grid layout. Built using Node.js, Express.js, Firebase, and EJS, the project focuses on secure user authentication, efficient file handling, and real-time media display. Ideal for digital portfolios or media galleries.",
-      image: "https://ibb.co/SDBnYtjx",
+      image: "/lovable-uploads/cae23af9-32db-481b-94b2-b15aaee4bcf2.png",
       technologies: ["Node.js", "Express.js", "Firebase Authentication", "Firebase Firestore", "Firebase Storage", "EJS", "Body-parser", "bcrypt", "Multer"],
       icon: <Globe className="h-4 w-4" />
     },
