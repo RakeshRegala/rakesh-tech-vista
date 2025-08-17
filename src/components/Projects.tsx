@@ -50,6 +50,13 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, image, techno
 const Projects: React.FC = () => {
   const projects = [
     {
+      title: "🎮 Tic Tac Toe",
+      description: "A fun and interactive two-player Tic Tac Toe game with both frontend and backend integration. Players take turns placing X's and O's (each styled with different colors), and the winner is announced with a big glowing animated result message. The game also supports a restart option for replayability. On the backend, it's powered by Node.js and Express, with Firebase used for database connectivity and authentication (via service account).",
+      image: "/lovable-uploads/tic-tac-toe.png",
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Express.js", "Firebase", "Git", "GitHub"],
+      icon: <Code className="h-4 w-4" />
+    },
+    {
       title: "MEDIAGRID-A Social webapp",
       description: "A responsive web application that allows users to sign up, log in, and upload media files (images/videos), which are then displayed in a dynamic grid layout. Built using Node.js, Express.js, Firebase, and EJS, the project focuses on secure user authentication, efficient file handling, and real-time media display. Ideal for digital portfolios or media galleries.",
       image: "/lovable-uploads/cae23af9-32db-481b-94b2-b15aaee4bcf2.png",
