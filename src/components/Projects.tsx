@@ -3,7 +3,6 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code, Database, Globe, MessageSquare, Link } from 'lucide-react';
-import ticTacToeImage from "@/assets/tic-tac-toe-game.png";
 
 interface ProjectProps {
   title: string;
@@ -95,7 +94,7 @@ const Projects: React.FC = () => {
     {
       title: "🎮 Tic Tac Toe",
       description: "A fun and interactive two-player Tic Tac Toe game with both frontend and backend integration. Players take turns placing X's and O's (each styled with different colors), and the winner is announced with a big glowing animated result message. The game also supports a restart option for replayability. On the backend, it's powered by Node.js and Express, with Firebase used for database connectivity and authentication (via service account).",
-      image: ticTacToeImage,
+      image: "https://postimg.cc/PPby62Qr",
       technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Express.js", "Firebase", "Git", "GitHub"],
       icon: <Code className="h-4 w-4" />
     }
