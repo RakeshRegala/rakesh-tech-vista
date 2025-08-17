@@ -94,7 +94,7 @@ const Projects: React.FC = () => {
     {
       title: "🎮 Tic Tac Toe",
       description: "A fun and interactive two-player Tic Tac Toe game with both frontend and backend integration. Players take turns placing X's and O's (each styled with different colors), and the winner is announced with a big glowing animated result message. The game also supports a restart option for replayability. On the backend, it's powered by Node.js and Express, with Firebase used for database connectivity and authentication (via service account).",
-      image: "/lovable-uploads/tic-tac-toe.png",
+      image: "https://i.ibb.co/cXRxrRv/tic-tac-toe.png",
       technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Express.js", "Firebase", "Git", "GitHub"],
       icon: <Code className="h-4 w-4" />
     }
